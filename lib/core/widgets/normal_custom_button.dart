@@ -10,6 +10,7 @@ class NormalCustomButton extends StatelessWidget {
   final Color fillColor;
   final bool showIcon;
   final IconData? sufixIcon;
+  final double circularRadious;
 
   const NormalCustomButton({
     super.key,
@@ -22,6 +23,7 @@ class NormalCustomButton extends StatelessWidget {
     this.fillColor = Colors.red,
     this.showIcon = false,
     this.sufixIcon,
+    this.circularRadious = 8,
   });
 
   @override
@@ -34,7 +36,7 @@ class NormalCustomButton extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(circularRadious),
             gradient: LinearGradient(
               stops: [0.0, 0.4, 9.0],
               colors: [
@@ -49,7 +51,11 @@ class NormalCustomButton extends StatelessWidget {
             children: [
               Text(
                 text,
-                style: TextStyle(color: textColor, fontSize: fontSize),
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               if (showIcon && sufixIcon != null) ...[
                 const SizedBox(width: 5),
@@ -108,7 +114,11 @@ class SmallSemiTranparentButton extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(
                 text,
-                style: TextStyle(color: textColor, fontSize: fontSize),
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
             if (showIcon && sufixIcon != null) ...[
